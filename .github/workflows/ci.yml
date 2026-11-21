@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      # validate と test はログインも API キーも要らない
+      - name: Claude Code を入れる
+        run: npm install -g @anthropic-ai/claude-code
+      - run: claude --version
+      - name: validate
+        run: claude plugin validate .
+      - name: test
+        run: claude plugin test .
