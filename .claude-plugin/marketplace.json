@@ -1,0 +1,12 @@
+{
+  "name": "merge-watch",
+  "description": "PR のマージを見張ってセッションに後始末をさせる Claude Code の mod",
+  "owner": { "name": "holmesfems" },
+  "plugins": [
+    {
+      "name": "merge-watch",
+      "source": "./",
+      "description": "セッションが出した PR を見張り、マージされたらそのセッションを起こして後始末をさせる"
+    }
+  ]
+}

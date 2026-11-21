@@ -1,0 +1,31 @@
+{
+  "name": "merge-watch",
+  "version": "0.1.0",
+  "description": "セッションが出した PR を見張り、マージされたらそのセッションを起こして後始末（main に切り替えて pull・ブランチの片付けなど）をさせる",
+  "author": { "name": "holmesfems" },
+  "homepage": "https://github.com/holmesfems/merge-watch",
+  "repository": "https://github.com/holmesfems/merge-watch",
+  "license": "MIT",
+  "userConfig": {
+    "intervalMinutes": {
+      "type": "number",
+      "title": "見に行く間隔（分）",
+      "description": "見張っている PR の状態を GitHub に聞きに行く間隔。1 分より短くはしない",
+      "default": 5,
+      "min": 1,
+      "max": 120
+    },
+    "autoWatch": {
+      "type": "boolean",
+      "title": "出した PR を自動で見張る",
+      "description": "gh pr create で出した PR と、デスクトップアプリで bind した PR を自動で見張りに加える",
+      "default": true
+    },
+    "cleanup": {
+      "type": "string",
+      "title": "マージのあとの後始末",
+      "description": "PR がマージされたときに Claude に頼むこと。空にすると既定の後始末",
+      "default": ""
+    }
+  }
+}
