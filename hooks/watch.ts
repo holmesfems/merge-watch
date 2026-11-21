@@ -44,10 +44,10 @@ export function shortName(pr: Pick<BoundPr, 'url'>): string {
   return m ? `${m[1]}#${m[2]}` : pr.url
 }
 
-/** 間隔（秒）をミリ秒に。10〜600 秒におさめる */
+/** 間隔（秒）をミリ秒に。5〜600 秒におさめる */
 export function intervalMs(seconds: unknown): number {
-  const n = typeof seconds === 'number' && Number.isFinite(seconds) ? seconds : 30
-  return Math.min(600, Math.max(10, n)) * 1000
+  const n = typeof seconds === 'number' && Number.isFinite(seconds) ? seconds : 10
+  return Math.min(600, Math.max(5, n)) * 1000
 }
 
 export const DEFAULT_CLEANUP = [
