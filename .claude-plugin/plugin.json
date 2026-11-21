@@ -1,25 +1,21 @@
 {
   "name": "merge-watch",
-  "version": "0.1.0",
-  "description": "セッションが出した PR を見張り、マージされたらそのセッションを起こして後始末（main に切り替えて pull・ブランチの片付けなど）をさせる",
-  "author": { "name": "holmesfems" },
+  "version": "0.2.0",
+  "description": "セッションに bind された PR を見張り、マージされたらそのセッションを起こして後始末（main に切り替えて pull・ブランチの片付けなど）をさせる",
+  "author": {
+    "name": "holmesfems"
+  },
   "homepage": "https://github.com/holmesfems/merge-watch",
   "repository": "https://github.com/holmesfems/merge-watch",
   "license": "MIT",
   "userConfig": {
-    "intervalMinutes": {
+    "intervalSeconds": {
       "type": "number",
-      "title": "見に行く間隔（分）",
-      "description": "見張っている PR の状態を GitHub に聞きに行く間隔。1 分より短くはしない",
-      "default": 5,
-      "min": 1,
-      "max": 120
-    },
-    "autoWatch": {
-      "type": "boolean",
-      "title": "出した PR を自動で見張る",
-      "description": "gh pr create で出した PR と、デスクトップアプリで bind した PR を自動で見張りに加える",
-      "default": true
+      "title": "見に行く間隔（秒）",
+      "description": "デスクトップアプリに PR の状態を聞く間隔。アプリの手元の情報を読むだけなので、GitHub API は使わない",
+      "default": 30,
+      "min": 10,
+      "max": 600
     },
     "cleanup": {
       "type": "string",
